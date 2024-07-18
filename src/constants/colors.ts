@@ -1,0 +1,15 @@
+export const colors = {
+  w1: "#FFFFFF",
+  w2: "#F5F5F5",
+  w3: "#DEDEDE",
+  w4: "#A6A6A6",
+  w5: "#757575",
+  chartBlue: "#386E94",
+  chartGreen: "#549438",
+  midnight: "#1D4666",
+  b1: "#5D5D5D",
+  b2: "#3F3F3F",
+  b3: "#323232",
+  redLight: "#f69697",
+  red: "#cc0000",
+};

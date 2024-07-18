@@ -1,0 +1,66 @@
+stages:
+  - tests
+  - deploy
+
+Run tests:
+  stage: tests
+  tags:
+    - test
+  image: node:18.14.1-alpine
+  before_script:
+    - npm install
+  script:
+    - npm run lint
+    # more tests
+    - npm run build
+
+Deploy to test-env:
+  stage: deploy
+  tags:
+    - deploy
+  only:
+    - test
+  before_script:
+    - export PATH=$PATH:/home/deployer/.nvm/versions/node/v18.14.1/bin
+  script:
+    - cd /home/test.frontend.smartshirt
+    - git switch test
+    - git pull origin test
+    - npm install
+    - npm run lint
+    - npm run build
+    - pm2 restart test-smartshirt
+
+Deploy to dev-env:
+  stage: deploy
+  tags:
+    - deploy
+  only:
+    - dev
+  before_script:
+    - export PATH=$PATH:/home/deployer/.nvm/versions/node/v18.14.1/bin
+  script:
+    - cd /home/dev.frontend.smartshirt
+    - git switch develop
+    - git pull origin develop
+    - npm install
+    - npm run lint
+    - npm run build
+    - pm2 restart dev-smartshirt
+
+Deploy to prod-env:
+  stage: deploy
+  tags:
+    - prod-deploy
+  only:
+    - main
+  before_script:
+    - export PATH=$PATH:/home/deployer/.nvm/versions/node/v18.19.0/bin
+  script:
+    - cd /home/frontend.smartwear
+    - git switch main
+    - git pull origin main
+    - npm install
+    - npm run lint
+    - npm run build
+    - pm2 restart smartwear

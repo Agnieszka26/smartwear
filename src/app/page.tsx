@@ -64,9 +64,13 @@ async function Page() {
           subtitle={texts.czujniki_w_inteligentnych_koszulkach}
         />
       </Container>
-      {pdfModal && <BaseModal open={pdfModal} handleClose={() => setPdfModal(false)}>
+      
+      
+       {pdfModal && <BaseModal open={pdfModal} handleClose={() => setPdfModal(false)}>
+       {/* TODO: make proper modal for download app ( it supposed to be instructions in pdf) */}
         pdf
-      </BaseModal>}
+      </BaseModal>} 
+     
       <Section1
         images={[people]}
         subtitle={textsShirt.aplikacje_mobilne}

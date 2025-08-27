@@ -5,6 +5,7 @@ import euLogo4 from "@/assets/images/eu/belka POIR_pl.jpg";
 import euLogo5 from "@/assets/images/eu/belka POIR_pl_1.jpg";
 import euLogo6 from "@/assets/images/eu/belka POIR_pl_2.jpg";
 import euLogo7 from "@/assets/images/eu/belka POIR_pl_3.jpg";
+import logo_new from "@/assets/images/eu/logo_eu_new_2025.jpg"
 import { AnimateOnScroll } from '@/attoms/animateOnScroll/AnimateOnScroll';
 import { RoutesPath } from '@/constants/RoutesPath';
 import { Container, Link } from '@mui/material';
@@ -85,6 +86,7 @@ export const Row2EuLogos: FC = () => {
 const EuLogos = () => {
   return (
     <>
+    <LogoUe key={"logo_new"} src={logo_new} alt={"Fundusze Europejskie dla Polski Wschodniej Rzeczpospolita Polska Dofinansowanie przez Unię Europejską"} href={RoutesPath.PROJECTS_UE} />
       <Row1EuLogos />
       <Row2EuLogos />
     </>
